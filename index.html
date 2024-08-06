@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Openings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html" class="careers-link">Job Openings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="hero-section">
+        <div class="welcome-text">
+            <h1>Explore Our Open Positions</h1>
+            <p>Find the right opportunity for you and start your career journey with us.</p>
+        </div>
+    </div>
+    <main>
+        <section class="job-listings">
+            <h2>Current Job Openings</h2>
+            <div class="job-listings-content">
+                <div class="job-card" onclick="showJobDetails('job1')">
+                    <h2>Software Engineer</h2>
+                    <p>JOB code - R-2345677</p>
+                </div>
+                <div class="job-card" onclick="showJobDetails('job2')">
+                    <h2>Data Scientist</h2>
+                    <p>JOB code - R-235675677</p>
+                </div>
+                <!-- Add more job cards as needed -->
+            </div>
+        </section>
+    </main>
+
+    <div id="jobDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeJobDetails()">&times;</span>
+            <div id="job1" class="job-details">
+                <h2>Software Engineer</h2>
+                <p><strong>Company:</strong> Tech Innovators</p>
+                <p><strong>Job Description:</strong> Develop and maintain software applications...</p>
+                <p><strong>Qualifications:</strong> Bachelor's degree in Computer Science...</p>
+                <p><strong>Eligibility Criteria:</strong> 2+ years of experience...</p>
+                <p><strong>CTC:</strong> $70,000 - $90,000</p>
+                <button onclick="showApplicationForm()">Apply</button>
+            </div>
+            <div id="job2" class="job-details">
+                <h2>Data Scientist</h2>
+                <p><strong>Company:</strong> Data Wizards</p>
+                <p><strong>Job Description:</strong> Analyze and interpret complex data...</p>
+                <p><strong>Qualifications:</strong> Master's degree in Data Science...</p>
+                <p><strong>Eligibility Criteria:</strong> 3+ years of experience...</p>
+                <p><strong>CTC:</strong> $80,000 - $100,000</p>
+                <button onclick="showApplicationForm()">Apply</button>
+            </div>
+            <!-- Add more job details as needed -->
+        </div>
+    </div>
+
+    <div id="applicationFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeApplicationForm()">&times;</span>
+            <h2>Apply for Job</h2>
+            <form id="jobApplicationForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="resume">Upload Resume</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf, .doc, .docx" required>
+                </div>
+                <div class="form-group">
+                    <label for="coverLetter">Cover Letter</label>
+                    <textarea id="coverLetter" name="coverLetter" rows="6" required></textarea>
+                </div>
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
