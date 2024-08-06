@@ -1,0 +1,263 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;
+    height: 100px; /* Increased height for the navbar */
+    z-index: 1; /* Ensure the header is above the hero section */
+    background-color: black; /* Background color for navbar */
+}
+
+header nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 100%;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white; /* Font color for the nav links */
+    padding: 10px 15px;
+    background-color: transparent;
+    transition: all 0.3s;
+    position: relative;
+}
+
+header nav ul li a:hover {
+    color: white; /* Font color on hover */
+}
+
+header nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+header nav ul li a.careers-link {
+    color: white; /* Font color for the careers link */
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+header nav ul li a.careers-link:hover {
+    background-color: black;
+    color: white;
+}
+
+.hero-section {
+    position: relative;
+    height: 50vh; /* Cover half of the viewport height */
+    overflow: hidden;
+    background: url('home.jpg') no-repeat center center;
+    background-size: cover;
+    margin-top: -100px; /* Extend the image to cover the area behind the navbar */
+}
+
+.hero-section .welcome-text {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+main {
+    background-color: black; /* Background color of the content area */
+    color: white; /* Text color in the content area */
+    padding: 20px; /* Padding inside the content area */
+    margin-top: 0; /* Ensure no margin on top so it starts directly below the hero section */
+}
+
+.values {
+    padding: 40px 20px;
+}
+
+.values h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Heading color for the values section */
+}
+
+.values-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Center items horizontally */
+}
+
+.value-item {
+    background-color: #333; /* Background color for each value item */
+    padding: 20px;
+    border-radius: 5px;
+    width: calc(25% - 20px); /* Four items per row with gap */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.value-item:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+.value-heading {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f4f4f4;
+    margin-bottom: 10px; /* Space between heading and description */
+}
+
+.value-description {
+    color: #ccc;
+    text-align: center; /* Center text inside the box */
+}
+
+.job-listings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.job-card:hover {
+    background-color: #f0f0f0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: calc(100% - 10px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group input[type="file"] {
+    padding: 3px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: 1px solid white; /* White border for the button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #333; /* Slightly lighter black for hover effect */
+    color: #fff; /* Ensure text remains white on hover */
+}
+
+footer {
+    background-color: black; /* Black background for the footer */
+    color: black; /* White text color for the footer */
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
