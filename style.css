@@ -7,15 +7,16 @@ body {
 
 header {
     position: relative;
-    height: 100px; /* Increased height for the navbar */
-    z-index: 1; /* Ensure the header is above the hero section */
-    background-color: black; /* Background color for navbar */
+    height: 100px;
+    z-index: 1;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 header nav {
-    position: absolute;
-    top: 0;
-    right: 0;
     height: 100%;
 }
 
@@ -35,7 +36,7 @@ header nav ul li {
 
 header nav ul li a {
     text-decoration: none;
-    color: white; /* Font color for the nav links */
+    color: white;
     padding: 10px 15px;
     background-color: transparent;
     transition: all 0.3s;
@@ -43,7 +44,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: white; /* Font color on hover */
+    color: white;
 }
 
 header nav ul li a::after {
@@ -63,9 +64,7 @@ header nav ul li a:hover::after {
 }
 
 header nav ul li a.careers-link {
-    color: white; /* Font color for the careers link */
-    border: 1px solid white;
-    border-radius: 5px;
+    color: white;
     padding: 10px 20px;
 }
 
@@ -76,15 +75,27 @@ header nav ul li a.careers-link:hover {
 
 .hero-section {
     position: relative;
-    height: 50vh; /* Cover half of the viewport height */
+    height: 50vh;
     overflow: hidden;
-    background: url('home.jpg') no-repeat center center;
+    background: url('/images/home.jpg') no-repeat center center;
     background-size: cover;
-    margin-top: -100px; /* Extend the image to cover the area behind the navbar */
+    margin-top: 0;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 0;
 }
 
 .hero-section .welcome-text {
-    position: absolute;
+    position: relative;
+    z-index: 1;
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
@@ -96,10 +107,10 @@ header nav ul li a.careers-link:hover {
 }
 
 main {
-    background-color: black; /* Background color of the content area */
-    color: white; /* Text color in the content area */
-    padding: 20px; /* Padding inside the content area */
-    margin-top: 0; /* Ensure no margin on top so it starts directly below the hero section */
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin-top: 0;
 }
 
 .values {
@@ -109,26 +120,27 @@ main {
 .values h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: white; /* Heading color for the values section */
+    color: white;
 }
 
 .values-content {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    justify-content: center; /* Center items horizontally */
+    padding: 20px;
 }
 
 .value-item {
-    background-color: #333; /* Background color for each value item */
+    background-color: #333;
     padding: 20px;
     border-radius: 5px;
-    width: calc(25% - 20px); /* Four items per row with gap */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
     transition: background-color 0.3s, transform 0.3s;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Ensure column layout for images above text */
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .value-item:hover {
@@ -140,12 +152,19 @@ main {
     font-size: 1.2em;
     font-weight: bold;
     color: #f4f4f4;
-    margin-bottom: 10px; /* Space between heading and description */
+    margin-bottom: 10px;
 }
 
 .value-description {
     color: #ccc;
-    text-align: center; /* Center text inside the box */
+    font-size: 1em;
+}
+
+.value-item img {
+    max-width: 100%; /* Ensure image scales with container */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Space between image and text */
 }
 
 .job-listings {
@@ -163,7 +182,7 @@ main {
 }
 
 .job-card:hover {
-    background-color: #f0f0f0;
+    background-color: #333;
 }
 
 .modal {
@@ -231,7 +250,7 @@ button {
     padding: 10px;
     background-color: black;
     color: #fff;
-    border: 1px solid white; /* White border for the button */
+    border: 1px solid white;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
@@ -239,25 +258,86 @@ button {
 }
 
 button:hover {
-    background-color: #333; /* Slightly lighter black for hover effect */
-    color: #fff; /* Ensure text remains white on hover */
+    background-color: #333;
+    color: #fff;
 }
 
 footer {
-    background-color: black; /* Black background for the footer */
-    color: black; /* White text color for the footer */
+    background-color: black;
+    color: white;
     text-align: center;
     padding: 20px;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    position: relative;
 }
 
 footer a {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
 footer a:hover {
     text-decoration: underline;
+}
+
+.contact-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-info h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #ccc;
+    margin: 5px 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-section {
+        height: 30vh;
+    }
+
+    .value-item {
+        flex-direction: column; /* Ensure column layout on smaller screens */
+    }
+    
+    .values-content {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section .welcome-text {
+        bottom: 5%;
+        padding: 10px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }
