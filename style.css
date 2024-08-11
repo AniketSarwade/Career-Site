@@ -77,7 +77,8 @@ header nav ul li a.careers-link:hover {
     position: relative;
     height: 50vh;
     overflow: hidden;
-    background: url('/home.jpg') no-repeat center center;
+    background: url('/images/home.jpg') no-repeat center center;
+
     background-size: cover;
     margin-top: 0;
 }
