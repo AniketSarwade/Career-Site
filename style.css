@@ -73,7 +73,7 @@ header nav ul li a.careers-link:hover {
     color: white;
 }
 
-.hero-section {
+/* .hero-section {
     position: relative;
     height: 50vh;
     overflow: hidden;
@@ -81,7 +81,12 @@ header nav ul li a.careers-link:hover {
 
     background-size: cover;
     margin-top: 0;
+} */
+.hero-section {
+    background: url('images/home.jpg') no-repeat center center;
+    height: 50vh;
 }
+
 
 .hero-section::before {
     content: '';
