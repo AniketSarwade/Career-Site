@@ -3,9 +3,6 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 header {
@@ -67,8 +64,8 @@ header nav ul li a:hover::after {
 
 header nav ul li a.careers-link {
     color: white; /* Font color for the careers link */
-    /* border: 1px solid white; */
-    /* border-radius: 5px; */
+    border: 1px solid white;
+    border-radius: 5px;
     padding: 10px 20px;
 }
 
@@ -103,7 +100,6 @@ main {
     color: white; /* Text color in the content area */
     padding: 20px; /* Padding inside the content area */
     margin-top: 0; /* Ensure no margin on top so it starts directly below the hero section */
-    flex-grow: 1; /* Ensure the main content area grows to take available space */
 }
 
 .values {
@@ -152,33 +148,113 @@ main {
     text-align: center; /* Center text inside the box */
 }
 
-.contact-info {
+.job-listings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-card {
     padding: 20px;
-    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.contact-info h2 {
-    color: white;
-    margin-bottom: 20px;
+.job-card:hover {
+    background-color: #f0f0f0;
 }
 
-.contact-info p {
-    color: #ccc;
-    margin: 5px 0;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: calc(100% - 10px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group input[type="file"] {
+    padding: 3px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: 1px solid white; /* White border for the button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #333; /* Slightly lighter black for hover effect */
+    color: #fff; /* Ensure text remains white on hover */
 }
 
 footer {
     background-color: black; /* Black background for the footer */
-    color: white; /* White text color for the footer */
+    color: black; /* White text color for the footer */
     text-align: center;
     padding: 20px;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
 
 footer a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
